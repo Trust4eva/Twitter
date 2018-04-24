@@ -1,4 +1,4 @@
-# Project 5 - *Twittet*
+# Project 5 - *Twitter*
 
 **TrustTwitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
