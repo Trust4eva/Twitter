@@ -188,10 +188,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home Timeline" id="9Zi-uW-GTS">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hz2-ji-ft0">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="hz2-ji-ft0">
                             <connections>
                                 <action selector="didTapLogout:" destination="5YO-Vh-39k" id="fM7-h5-mq1"/>
                             </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="edit-icon" style="plain" id="7CK-VF-6Ip">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="43J-dG-B0s">
+                                <rect key="frame" x="329" y="8.5" width="30" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="edit-icon"/>
+                                <connections>
+                                    <segue destination="NKG-Ru-cTs" kind="presentation" id="yIU-hV-R6M"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -201,6 +211,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlF-i2-Ves" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1660" y="36.431784107946029"/>
+        </scene>
+        <!--Composing View Controller-->
+        <scene sceneID="tAa-mo-0H8">
+            <objects>
+                <viewController id="NKG-Ru-cTs" customClass="ComposingViewController" customModule="twitter_alamofire_demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wcc-xc-Tbg"/>
+                        <viewControllerLayoutGuide type="bottom" id="sVf-pn-Ebb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aNY-9p-atw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rP4-KA-rZP">
+                                <rect key="frame" x="274" y="41" width="83" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Tweet"/>
+                                <connections>
+                                    <action selector="TweetButton:" destination="NKG-Ru-cTs" eventType="touchUpInside" id="7md-08-S13"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WSm-In-les">
+                                <rect key="frame" x="18" y="86" width="68" height="54"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's happening?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zhJ-vm-tR1">
+                                <rect key="frame" x="94" y="86" width="265" height="349"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="265" id="9eN-IW-MS7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0In-0b-Vug">
+                                <rect key="frame" x="18" y="45" width="80" height="24"/>
+                                <state key="normal" title="Button" image="close-icon"/>
+                                <connections>
+                                    <action selector="CancelButton:" destination="NKG-Ru-cTs" eventType="touchUpInside" id="2O6-az-QAc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WSm-In-les" firstAttribute="top" secondItem="0In-0b-Vug" secondAttribute="bottom" constant="17" id="Cro-4G-cn1"/>
+                            <constraint firstItem="WSm-In-les" firstAttribute="leading" secondItem="aNY-9p-atw" secondAttribute="leadingMargin" constant="2" id="FXA-Jx-lOE"/>
+                            <constraint firstItem="rP4-KA-rZP" firstAttribute="top" secondItem="wcc-xc-Tbg" secondAttribute="bottom" constant="21" id="Fri-sc-dhr"/>
+                            <constraint firstItem="rP4-KA-rZP" firstAttribute="leading" secondItem="0In-0b-Vug" secondAttribute="trailing" constant="176" id="Gar-Yz-R2a"/>
+                            <constraint firstItem="WSm-In-les" firstAttribute="leading" secondItem="0In-0b-Vug" secondAttribute="leading" id="TST-Yr-St3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rP4-KA-rZP" secondAttribute="trailing" constant="2" id="YGx-bb-q6O"/>
+                            <constraint firstItem="sVf-pn-Ebb" firstAttribute="top" secondItem="zhJ-vm-tR1" secondAttribute="bottom" constant="232" id="eWA-og-fHi"/>
+                            <constraint firstItem="zhJ-vm-tR1" firstAttribute="trailing" secondItem="aNY-9p-atw" secondAttribute="trailingMargin" id="hdJ-RW-2sI"/>
+                            <constraint firstItem="sVf-pn-Ebb" firstAttribute="top" secondItem="WSm-In-les" secondAttribute="bottom" constant="527" id="nNw-jv-PNR"/>
+                            <constraint firstItem="zhJ-vm-tR1" firstAttribute="top" secondItem="WSm-In-les" secondAttribute="top" id="pL4-5Q-gZb"/>
+                            <constraint firstItem="zhJ-vm-tR1" firstAttribute="leading" secondItem="WSm-In-les" secondAttribute="trailing" constant="8" id="tLt-IO-QOG"/>
+                            <constraint firstItem="0In-0b-Vug" firstAttribute="top" secondItem="wcc-xc-Tbg" secondAttribute="bottom" constant="25" id="yyo-pH-ozU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CancelButton" destination="0In-0b-Vug" id="e7Y-mS-TeM"/>
+                        <outlet property="ProfilePic" destination="WSm-In-les" id="7x1-6t-Khi"/>
+                        <outlet property="Tweet" destination="zhJ-vm-tR1" id="U5g-hb-53M"/>
+                        <outlet property="TweetButton" destination="rP4-KA-rZP" id="SEI-3K-dNF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sul-ob-ObW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2416.8000000000002" y="35.532233883058474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WXZ-z8-8LI">
@@ -223,6 +300,8 @@
     </scenes>
     <resources>
         <image name="TwitterLogoBlue" width="200" height="200"/>
+        <image name="close-icon" width="26" height="24"/>
+        <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
     </resources>
