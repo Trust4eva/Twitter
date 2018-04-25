@@ -19,9 +19,9 @@ The following **required** functionality is completed:
 
 The following **stretch** features are implemented:
 
-- [ ] The current signed in user will be persisted across restarts. (1pt)
-- [ ] Each tweet should display the relative timestamp for each tweet "8m", "7h". (1pt)
-- [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. (1pt)
+- [x] The current signed in user will be persisted across restarts. (1pt)
+- [x] Each tweet should display the relative timestamp for each tweet "8m", "7h". (1pt)
+- [x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. (1pt)
 - [ ] Links in tweets are clickable. (2pts)
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client. (2pts)
 
@@ -69,15 +69,15 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 # Project 6 - *TrustTwitter*
 
-Time spent: **X** hours spent in total
+Time spent: **14** hours spent in total
 
 ## User Stories
 
 The following **required** stories are completed:
 
-- [ ] User can tap on a tweet to view it in a detail view, with controls to retweet, favorite, and reply (2pts)
-- [ ] User can compose a new tweet by tapping on a compose button. (3pts)
-- [ ] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pt)
+- [x] User can tap on a tweet to view it in a detail view, with controls to retweet, favorite, and reply (2pts)
+- [x] User can compose a new tweet by tapping on a compose button. (3pts)
+- [x] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pt)
 - [ ] User can view their profile in a *profile tab* (3pts)
 
 
@@ -106,7 +106,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Challenges with creating profile tab, and detail view. The code to segue the tweet cell to the detail view causes a crash and same thing for the profile tab
 
 ## License
 
