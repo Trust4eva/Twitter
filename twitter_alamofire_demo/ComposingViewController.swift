@@ -63,8 +63,8 @@ class ComposingViewController: UIViewController {
             } else if let tweet = tweet {
                 self.delegate?.did(post: tweet)
                 print("Tweet Successful!")
-                self.dismiss(animated: true, completion: nil)
             }
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

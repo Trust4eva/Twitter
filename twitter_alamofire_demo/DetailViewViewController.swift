@@ -1,66 +1,63 @@
 //
-//  TweetCell.swift
+//  DetailViewViewController.swift
 //  twitter_alamofire_demo
 //
-//  Created by Charles Hieger on 6/18/17.
-//  Copyright © 2017 Charles Hieger. All rights reserved.
+//  Created by Trustin Harris on 4/25/18.
+//  Copyright © 2018 Charles Hieger. All rights reserved.
 //
 
 import UIKit
 import AlamofireImage
 
-class TweetCell: UITableViewCell {
+class DetailViewViewController: UIViewController {
     
-    @IBOutlet weak var tweetTextLabel: UILabel!
-    @IBOutlet weak var ProfilePic: UIImageView!
-    @IBOutlet weak var ScreenName: UILabel!
-    @IBOutlet weak var AtName: UILabel!
-    @IBOutlet weak var RTButton: UIButton!
-    @IBOutlet weak var TimeStamp: UILabel!
-    @IBOutlet weak var RTLabel: UILabel!
-    @IBOutlet weak var FavLabel: UILabel!
+    var tweet: Tweet!
+    
     @IBOutlet weak var FavButton: UIButton!
+    @IBOutlet weak var RTButton: UIButton!
+    @IBOutlet weak var FavLabel: UILabel!
+    @IBOutlet weak var TweetText: UITextView!
+    @IBOutlet weak var AtName: UILabel!
+    @IBOutlet weak var Name: UILabel!
+    @IBOutlet weak var ProfilePic: UIImageView!
+    @IBOutlet weak var RTLabel: UILabel!
     
-    var tweet: Tweet! {
-        didSet {
-            tweetTextLabel.text = tweet.text
-            AtName.text = tweet.user.name
-            ScreenName.text = tweet.user.Sname
-            TimeStamp.text = tweet.createdAtString
-            ProfilePic.af_setImage(withURL: URL(string: tweet.user.imageURL)!)
-            
-            if tweet.retweetCount == 0 {
-                RTLabel.text = " "
-            } else {
-                RTLabel.text = String(tweet.retweetCount)
-            }
-            
-            if tweet.favoriteCount == 0 {
-                FavLabel.text = " "
-            } else {
-                FavLabel.text = String(tweet.favoriteCount)
-            }
-            
-            if (tweet.retweeted == true)
-            {
-                RTButton.isSelected = true
-            } else {
-                RTButton.isSelected = false
-            }
-            
-            
-            if (tweet.favorited == true)
-            {
-                FavButton.isSelected = true
-            } else {
-                FavButton.isSelected = false
-            }
-            }
-        }
-    
-    
-    @IBAction func didTapRT(_ sender: Any) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        FavLabel.text = String(tweet.favoriteCount)
+        TweetText.text = tweet.text
+        AtName.text = tweet.user.Sname
+        Name.text = tweet.user.name
+        ProfilePic.af_setImage(withURL: URL(string: tweet.user.imageURL)!)
+        RTLabel.text = String(tweet.retweetCount)
+        
+        if (tweet.retweeted == true)
+        {
+            RTButton.isSelected = true
+        } else {
+            RTButton.isSelected = false
+        }
+        
+        
+        if (tweet.favorited == true)
+        {
+            FavButton.isSelected = true
+        } else {
+            FavButton.isSelected = false
+        }
+        
+        
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func RT(_ sender: UIButton) {
         if (RTButton.isSelected != true) {
             
             RTButton.isSelected = true
@@ -93,8 +90,7 @@ class TweetCell: UITableViewCell {
         }
     }
     
-    @IBAction func didTapFav(_ sender: Any) {
-        
+    @IBAction func Fav(_ sender: UIButton) {
         if (FavButton.isSelected != true) {
             
             FavButton.isSelected = true
@@ -126,17 +122,4 @@ class TweetCell: UITableViewCell {
             }
         }
     }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
 }

@@ -2,7 +2,7 @@
 //  TimelineViewController.swift
 //  twitter_alamofire_demo
 //
-//  Created by Charles Hieger on 6/18/17.
+//  Created by Trustin Harris on 4/13/18.
 //  Copyright © 2017 Charles Hieger. All rights reserved.
 //
 
@@ -10,6 +10,8 @@ import UIKit
 
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var ProfileButton: UIBarButtonItem!
+    @IBOutlet weak var TweetButton: UIBarButtonItem!
     var tweets: [Tweet] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -75,8 +77,21 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func didTapLogout(_ sender: Any) {
         APIManager.shared.logout()
     }
+  /**
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let cell = sender as! UITableViewCell
+        if let indexPath = tableView.indexPath(for: cell) {
+            let tweet = tweets[indexPath.row]
+            let detailVC = segue.destination as! DetailViewViewController
+            detailVC.tweet = tweet
+        }
+    }
     
+    ***************  CODE WORKS BUT CAUSES A CRASH WHEN PRESSING TWEET BUTTON ****************
     
-
-    
+     @IBAction func ProfileButton(_ sender: UIButton) {
+     performSegue(withIdentifier: "Profile", sender: nil)
+     }
+     **/
 }
