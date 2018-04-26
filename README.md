@@ -101,12 +101,14 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 https://i.imgur.com/bAJ2scE.gif
+https://i.imgur.com/SeD6e2p.gif
+https://i.imgur.com/nq2VAH5.gif
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Challenges with creating profile tab, and detail view. The code to segue the tweet cell to the detail view causes a crash and same thing for the profile tab
+Challenges with creating profile tab, and detail view. The code to segue the tweet cell to the detail view works but causes a crash when pressing the compose button. 
 
 ## License
 
