@@ -100,7 +100,6 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-https://i.imgur.com/bAJ2scE.gif
 https://i.imgur.com/SeD6e2p.gif
 https://i.imgur.com/nq2VAH5.gif
 
