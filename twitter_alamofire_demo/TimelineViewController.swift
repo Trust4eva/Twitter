@@ -77,8 +77,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func didTapLogout(_ sender: Any) {
         APIManager.shared.logout()
     }
-  /**
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "SegueB" {
+            
+        }else {
         
         let cell = sender as! UITableViewCell
         if let indexPath = tableView.indexPath(for: cell) {
@@ -86,12 +91,18 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             let detailVC = segue.destination as! DetailViewViewController
             detailVC.tweet = tweet
         }
+        }
     }
     
-    ***************  CODE WORKS BUT CAUSES A CRASH WHEN PRESSING TWEET BUTTON ****************
+    //***************  CODE WORKS BUT CAUSES A CRASH WHEN PRESSING TWEET BUTTON ****************
     
      @IBAction func ProfileButton(_ sender: UIButton) {
      performSegue(withIdentifier: "Profile", sender: nil)
      }
-     **/
+    
+    @IBAction func Composing(_ sender: UIButton) {
+        performSegue(withIdentifier: "SegueB", sender: nil)
+    }
+    
+ 
 }

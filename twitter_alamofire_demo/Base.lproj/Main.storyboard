@@ -200,13 +200,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="edit-icon"/>
                                 <connections>
-                                    <segue destination="NKG-Ru-cTs" kind="presentation" id="yIU-hV-R6M"/>
+                                    <action selector="Composing:" destination="5YO-Vh-39k" eventType="touchUpInside" id="hiE-ZI-4Ji"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Ctl-bI-Eag" id="igH-cX-XMH"/>
+                        <segue destination="NKG-Ru-cTs" kind="presentation" identifier="SegueB" id="yTb-Ui-vus"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlF-i2-Ves" userLabel="First Responder" sceneMemberID="firstResponder"/>
