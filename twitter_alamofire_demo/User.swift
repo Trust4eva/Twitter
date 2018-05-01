@@ -13,25 +13,25 @@ class User {
     var name: String
     var Sname: String
     var imageURL:String
-    //var backimageURL: String
-    //var followersCount: Int
-    //var followingCount: Int
+    var backimageURL: String
+    var followersCount: Int
+    var followingCount: Int
     
     var dictionary: [String: Any]?
     
     private static var _current: User?
-
+    
     
     init(dictionary: [String: Any]) {
         
         name = dictionary["name"] as! String
         Sname = dictionary["screen_name"] as! String
         let image = dictionary["profile_image_url_https"] as! String
-      // let backimage = dictionary["profile_background_image_url_https"] as! String
+        let backimage = dictionary["profile_background_image_url_https"] as! String
         imageURL = String((image.dropLast(11))) + ".jpg"
-        //backimageURL = String((backimage.dropLast(11))) + ".jpg"
-        //followersCount = dictionary["followers_count"] as! Int
-        //followingCount = dictionary["friends_count"] as! Int
+        backimageURL = String((backimage.dropLast(11))) + ".jpg"
+        followersCount = dictionary["followers_count"] as! Int
+        followingCount = dictionary["friends_count"] as! Int
         
         self.dictionary = dictionary;
     }

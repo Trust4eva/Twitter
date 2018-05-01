@@ -5,11 +5,11 @@
 //  Created by Trustin Harris on 4/25/18.
 //  Copyright © 2018 Charles Hieger. All rights reserved.
 //
-/**
+
 import UIKit
 import AlamofireImage
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var BackIV: UIImageView!
     @IBOutlet weak var TableView: UITableView!
@@ -20,11 +20,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var ProfilePic: UIImageView!
     
-    var tweet: Tweet!
+   
     var CurrentUser = User.current!
+    var tweets: [Tweet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         AtName.text = CurrentUser.Sname
         Name.text = CurrentUser.name
@@ -32,23 +34,48 @@ class ProfileViewController: UIViewController {
         BackIV.af_setImage(withURL: URL(string: (CurrentUser.backimageURL))!)
         FollowersLabel.text = String((CurrentUser.followersCount))
         FollowingLabel.text = String((CurrentUser.followingCount))
+        
+        TableView.dataSource = self
+        TableView.delegate = self
+        getTimeLine()
+        TableView.rowHeight = 115
+        TableView.estimatedRowHeight = 115
+        
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
+        
+        cell.tweet = tweets[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    func getTimeLine() {
+        APIManager.shared.getHomeTimeLine { (tweets, error) in
+            if let tweets = tweets {
+                self.tweets = tweets
+                self.TableView.reloadData()
+            } else if let error = error {
+                print("Error getting home timeline: " + error.localizedDescription)
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
-**/
+

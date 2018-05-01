@@ -80,8 +80,10 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
-        if segue.identifier == "SegueB" {
+        if segue.identifier == "ProfileSegue" {
+            
+        }
+        else if segue.identifier == "SegueB" {
             
         }else {
         
@@ -94,7 +96,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    //***************  CODE WORKS BUT CAUSES A CRASH WHEN PRESSING TWEET BUTTON ****************
+
     
      @IBAction func ProfileButton(_ sender: UIButton) {
      performSegue(withIdentifier: "Profile", sender: nil)
