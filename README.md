@@ -69,7 +69,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 # Project 6 - *TrustTwitter*
 
-Time spent: **14** hours spent in total
+Time spent: **16** hours spent in total
 
 ## User Stories
 
@@ -78,7 +78,7 @@ The following **required** stories are completed:
 - [x] User can tap on a tweet to view it in a detail view, with controls to retweet, favorite, and reply (2pts)
 - [x] User can compose a new tweet by tapping on a compose button. (3pts)
 - [x] When composing a tweet, user sees a countdown for the number of characters remaining for the tweet (out of 140) (2pt)
-- [ ] User can view their profile in a *profile tab* (3pts)
+- [x] User can view their profile in a *profile tab* (3pts)
 
 
 The following **stretch** features are implemented:
@@ -99,15 +99,11 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
-https://i.imgur.com/SeD6e2p.gif
-https://i.imgur.com/nq2VAH5.gif
-
+https://i.imgur.com/crR7B4X.gif
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
-
-Challenges with creating profile tab, and detail view. The code to segue the tweet cell to the detail view works but causes a crash when pressing the compose button. 
+Had challegnes implementing auto layout to the Profile cell
 
 ## License
 
